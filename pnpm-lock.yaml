@@ -14,6 +14,9 @@ importers:
       drizzle-orm:
         specifier: ^0.33.0
         version: 0.33.0(@libsql/client@0.9.0)
+      svelte-kit-cookie-session:
+        specifier: ^4.0.0
+        version: 4.0.0
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^3.0.0
@@ -628,6 +631,9 @@ packages:
 
   '@neon-rs/load@0.0.4':
     resolution: {integrity: sha512-kTPhdZyTQxB+2wpiRcFWrDcejc4JI6tkPuS7UZCG4l6Zvc5kU/gGQ/ozvHTh1XR5tS+UlfAfGuPajjzQjCiHCw==}
+
+  '@noble/ciphers@0.2.0':
+    resolution: {integrity: sha512-6YBxJDAapHSdd3bLDv6x2wRPwq4QFMUaB3HvljNBUTThDd12eSm7/3F+2lnfzx2jvM+S6Nsy0jEt9QbPqSwqRw==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1413,7 +1419,6 @@ packages:
 
   libsql@0.4.7:
     resolution: {integrity: sha512-T9eIRCs6b0J1SHKYIvD8+KCJMcWZ900iZyxdnSCdqxN12Z1ijzT+jY5nrk72Jw4B0HGzms2NgpryArlJqvc3Lw==}
-    cpu: [x64, arm64, wasm32]
     os: [darwin, linux, win32]
 
   lilconfig@2.1.0:
@@ -1827,6 +1832,9 @@ packages:
     peerDependenciesMeta:
       svelte:
         optional: true
+
+  svelte-kit-cookie-session@4.0.0:
+    resolution: {integrity: sha512-P7Og9z+cpwitS8JN9bBMxIFvX7kBM/Vrx4gDYbodO7qtT5C+EMJnNFpruvQgomL2UthzHYWLN/4aEgAGDgPTDA==}
 
   svelte@5.1.16:
     resolution: {integrity: sha512-QcY+om9r8+uTcSfeFuv8++ExdfwVCKeT+Y7GPSZ6rQPczvy62BMtvMoi0rScabgv+upGE5jxKjd7M4u23+AjGA==}
@@ -2346,6 +2354,8 @@ snapshots:
     optional: true
 
   '@neon-rs/load@0.0.4': {}
+
+  '@noble/ciphers@0.2.0': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -3434,6 +3444,10 @@ snapshots:
       postcss-scss: 4.0.9(postcss@8.4.49)
     optionalDependencies:
       svelte: 5.1.16
+
+  svelte-kit-cookie-session@4.0.0:
+    dependencies:
+      '@noble/ciphers': 0.2.0
 
   svelte@5.1.16:
     dependencies:

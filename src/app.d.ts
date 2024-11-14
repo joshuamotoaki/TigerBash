@@ -1,13 +1,24 @@
-// See https://svelte.dev/docs/kit/types#app.d.ts
-// for information about these interfaces
+import type { Session } from "svelte-kit-cookie-session";
+
+export type SessionData = {
+    netid: string;
+    displayname: string;
+    mail: string;
+    year: string;
+};
+
 declare global {
-	namespace App {
-		// interface Error {}
-		// interface Locals {}
-		// interface PageData {}
-		// interface PageState {}
-		// interface Platform {}
-	}
+    namespace App {
+        // interface Error {}
+        interface Locals {
+            session: Session<SessionData>;
+        }
+        interface PageData {
+            session: Session<SessionData>;
+        }
+        // interface PageState {}
+        // interface Platform {}
+    }
 }
 
 export {};
