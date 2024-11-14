@@ -11,9 +11,7 @@ import {
     type RequestEvent,
     type RequestHandler
 } from "@sveltejs/kit";
-import * as schema from "$lib/db/schema";
 import { CASClient } from "$lib/server/cas";
-import { db } from "$lib/db/db";
 
 // Validate a CAS login ticket and set the user's session data
 export const GET: RequestHandler = async (req: RequestEvent) => {
@@ -31,11 +29,6 @@ export const GET: RequestHandler = async (req: RequestEvent) => {
         return new Response("CAS authentication failed", {
             status: 401
         });
-    }
-
-    const existingUser = db.getUser(userInfo.netid);
-    if (!existingUser) {
-        await db.database.insert(schema.users).values(userInfo);
     }
 
     await req.locals.session.set(userInfo);

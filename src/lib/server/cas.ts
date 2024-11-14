@@ -9,10 +9,11 @@
 
 import { redirect } from "@sveltejs/kit";
 import type { SessionData } from "../../app";
+import { PUBLIC_SITE_URL } from "$env/static/public";
 
 export class CASClient {
     // URL of the service that the CAS server will redirect to
-    private static APP_URL = "http://localhost:5173/auth/";
+    private static APP_URL = PUBLIC_SITE_URL + "/auth/";
 
     // CAS server URL
     private static CAS_URL = "https://fed.princeton.edu/cas/";
@@ -55,11 +56,9 @@ export class CASClient {
         if (this.hasKey(serviceResponse, "authenticationSuccess")) {
             const userInfo = serviceResponse.authenticationSuccess;
 
-            let year = "Graduate";
-            if (userInfo.attributes.pustatus[0] === "undergraduate") {
-                const splitDpt = userInfo.attributes.department[0].split(" ");
-                year = splitDpt[splitDpt.length - 1];
-            }
+            const splitDpt = userInfo.attributes.department[0].split(" ");
+            let year = splitDpt[splitDpt.length - 1];
+            if (isNaN(parseInt(year))) year = "Graduate";
 
             return {
                 netid: userInfo.user,
